@@ -3,11 +3,15 @@ import logo from "./logo.svg";
 import "./App.scss";
 import { useAppSelector, useAppDispatch } from "state/hooks";
 import { decrement, increment } from "state/actions";
+import { useGames } from "hooks/useGames";
 
 function App() {
-    console.log({ reduxState: useAppSelector((state) => state) });
     const dispatch = useAppDispatch();
     const { value: count } = useAppSelector((state) => state.counter);
+
+    const games = useGames();
+    console.log({ games });
+
     return (
         <div className="App">
             <header className="App-header">
