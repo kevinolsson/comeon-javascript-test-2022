@@ -14,7 +14,8 @@
     "camelcase": ["error", { "properties": "never" }],
     "react/jsx-fragments": ["error", "element"],
     "@typescript-eslint/no-explicit-any": "off",
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "indent": ["errror", 4]
     },
     "parserOptions": {
         "sourceType": "module"
