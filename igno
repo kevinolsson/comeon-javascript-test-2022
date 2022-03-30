@@ -1,0 +1,22 @@
+{
+  "extends": ["plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["prettier", "eslint-plugin-react", "@typescript-eslint"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+},
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": "error",
+    "no-var": "error",
+    "camelcase": ["error", { "properties": "never" }],
+    "react/jsx-fragments": ["error", "element"],
+    "@typescript-eslint/no-explicit-any": "off",
+    "semi": ["error", "always"]
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}
