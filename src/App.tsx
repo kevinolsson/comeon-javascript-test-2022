@@ -1,8 +1,13 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.scss";
+import { useAppSelector, useAppDispatch } from "state/hooks";
+import { decrement, increment } from "state/actions";
 
 function App() {
+    console.log({ reduxState: useAppSelector((state) => state) });
+    const dispatch = useAppDispatch();
+    const { value: count } = useAppSelector((state) => state.counter);
     return (
         <div className="App">
             <header className="App-header">
@@ -18,6 +23,19 @@ function App() {
                 >
                     Learn React
                 </a>
+                <button
+                    aria-label="Decrement value"
+                    onClick={() => dispatch(decrement())}
+                >
+                    -
+                </button>
+                <h1>{count}</h1>
+                <button
+                    aria-label="Increment value"
+                    onClick={() => dispatch(increment())}
+                >
+                    +
+                </button>
             </header>
         </div>
     );
