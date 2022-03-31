@@ -8,9 +8,7 @@ import { useGames } from "hooks/useGames";
 function App() {
     const dispatch = useAppDispatch();
     const { value: count } = useAppSelector((state) => state.counter);
-
     const games = useGames();
-    console.log({ games });
 
     return (
         <div className="App">
