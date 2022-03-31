@@ -3,14 +3,22 @@ import logo from "./logo.svg";
 import "./App.scss";
 import { useAppSelector, useAppDispatch } from "state/hooks";
 import { decrement, increment } from "state/actions";
-import { useGetGamesQuery as fetchGames } from "./services/games";
+import {
+    useFetchGamesQuery as fetchGames,
+    useLoginQuery,
+} from "./services/comeonAPI";
 
 function App() {
     const dispatch = useAppDispatch();
     const { value: count } = useAppSelector((state) => state.counter);
     const { data, error, isLoading } = fetchGames({});
+    const authFail = useLoginQuery({ username: "hello", password: "world" });
+    const authPass = useLoginQuery({ username: "eric", password: "dad" });
+
+    console.log(JSON.stringify({ username: "eric", password: "dad" }));
 
     console.log({ data, error, isLoading });
+    console.log({ authFail, authPass });
 
     return (
         <div className="App">

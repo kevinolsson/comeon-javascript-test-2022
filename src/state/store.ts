@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { reducer } from "./reducer";
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { gamesApi } from '../services/games'
+import { comeonAPI } from '../services/comeonAPI'
 
 export const store = configureStore({ 
   reducer: {
     ...reducer,
-    [gamesApi.reducerPath]: gamesApi.reducer,
+    [comeonAPI.reducerPath]: comeonAPI.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(gamesApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(comeonAPI.middleware),
 })
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
