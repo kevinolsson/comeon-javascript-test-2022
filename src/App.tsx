@@ -3,12 +3,14 @@ import logo from "./logo.svg";
 import "./App.scss";
 import { useAppSelector, useAppDispatch } from "state/hooks";
 import { decrement, increment } from "state/actions";
-import { useGames } from "hooks/useGames";
+import { useGetGamesQuery as fetchGames } from "./services/games";
 
 function App() {
     const dispatch = useAppDispatch();
     const { value: count } = useAppSelector((state) => state.counter);
-    const games = useGames();
+    const { data, error, isLoading } = fetchGames({});
+
+    console.log({ data, error, isLoading });
 
     return (
         <div className="App">
