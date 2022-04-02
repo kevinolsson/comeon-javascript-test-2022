@@ -1,105 +1,83 @@
 import React from "react";
-import { useAppSelector, useAppDispatch } from "state/hooks";
-import { decrement, increment } from "state/actions";
+import { useAppDispatch } from "state/hooks";
 import { Link, useNavigate } from "react-router-dom";
-import { LoginRequest, useLoginMutation } from "services/comeonAPI";
+import { useLoginMutation } from "services/comeonAPI";
+import { ILoginRequest } from "services/interfaces";
 import { setCredentials } from "state/actions";
+import { useAuth } from "hooks/useAuth";
+import styles from "./home.module.scss";
 
 export const Home = (): JSX.Element => {
-    const dispatch = useAppDispatch();
-    const navigate = useNavigate();
-    const [formState, setFormState] = React.useState<LoginRequest>({
+    const [formState, setFormState] = React.useState<ILoginRequest>({
         username: "",
         password: "",
     });
+    const [error, setError] = React.useState<any>(null);
+    const { user } = useAuth();
 
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const [login, { isLoading }] = useLoginMutation();
-
-    // const { value: count } = useAppSelector((state) => state.counter);
-    // console.log(useAppSelector((state) => state));
 
     const handleChange = ({
         target: { name, value },
     }: React.ChangeEvent<HTMLInputElement>) =>
         setFormState((prev) => ({ ...prev, [name]: value }));
 
+    const handleSubmit = async (): Promise<void> => {
+        try {
+            await login(formState).then((response) => {
+                dispatch(setCredentials(response));
+                navigate("/games");
+            });
+        } catch (error) {
+            setError(error);
+        }
+    };
+
     return (
-        <div
-            style={{ margin: "24px", padding: "24px", backgroundColor: "#FFF" }}
-        >
-            <h1>Index</h1>
-            <h2>Put the login screen here</h2>
-            <Link to="/games">Go to games</Link>
+        <div className={styles.root}>
+            <h1 className={styles.root + "__header"}>Index</h1>
 
-            <div>
+            {user ? (
                 <div>
-                    <label>Username</label>
-                    <input
-                        onChange={handleChange}
-                        type="text"
-                        name="username"
-                        placeholder="username"
-                    />
+                    <h2>You are already logged in!</h2>
+                    <Link to="/games">Go to games</Link>
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input
-                        onChange={handleChange}
-                        type="password"
-                        name="password"
-                        placeholder="password"
-                    />
-                </div>
-                <div>
-                    {isLoading ? (
-                        <div>Loading...</div>
-                    ) : (
-                        <button
-                            onClick={async () => {
-                                try {
-                                    const response = await login(
-                                        formState
-                                    ).then((response) => response);
-                                    dispatch(setCredentials(response));
-                                    navigate("/games");
-                                } catch (err) {
-                                    console.log({ err });
-                                    // toast({
-                                    //     status: "error",
-                                    //     title: "Error",
-                                    //     description: "Oh no, there was an error!",
-                                    //     isClosable: true,
-                                    // });
-                                }
-                            }}
-                        >
-                            Login
-                        </button>
+            ) : (
+                <form onSubmit={handleSubmit}>
+                    {error && (
+                        <div>
+                            <h2>Error!</h2>
+                        </div>
                     )}
-                </div>
-            </div>
-
-            {/* <div
-                style={{
-                    maxWidth: 500,
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr",
-                }}
-            >
-                <button
-                    aria-label="Decrement value"
-                    onClick={() => dispatch(decrement())}
-                >
-                    -
-                </button>
-                <h1 style={{ textAlign: "center" }}>{count}</h1>
-                <button
-                    aria-label="Increment value"
-                    onClick={() => dispatch(increment())}
-                >
-                    +
-                </button>
-            </div> */}
+                    <div>
+                        <label>Username</label>
+                        <input
+                            onChange={handleChange}
+                            type="text"
+                            name="username"
+                            placeholder="username"
+                        />
+                    </div>
+                    <div>
+                        <label>Password</label>
+                        <input
+                            onChange={handleChange}
+                            type="password"
+                            name="password"
+                            placeholder="password"
+                        />
+                    </div>
+                    <div>
+                        {isLoading ? (
+                            <div>Loading...</div>
+                        ) : (
+                            <button onClick={handleSubmit}>Login</button>
+                        )}
+                    </div>
+                </form>
+            )}
         </div>
     );
 };

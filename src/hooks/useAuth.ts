@@ -3,8 +3,7 @@ import { useAppSelector } from 'state/hooks'
 import { RootState } from "state/store"
 
 export const useAuth = () => {
-  console.log({ state: useAppSelector((state) => state) });
-  const user = useAppSelector((state: RootState) => state.auth.player)
+  const user = useAppSelector((state: RootState) => state.auth.user)
 
   return useMemo(() => ({ user }), [user])
 }

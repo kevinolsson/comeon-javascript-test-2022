@@ -1,10 +1,4 @@
 import * as slices from "state/slices";
 
-export const {
-  increment,
-  decrement
-} = slices.counterSlice.actions;
-
-export const {
-  setCredentials
-} = slices.authSlice.actions;
+export const { setToast } = slices.toastSlice.actions
+export const { setCredentials } = slices.authSlice.actions;

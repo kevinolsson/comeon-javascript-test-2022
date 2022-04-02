@@ -1,32 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { User } from 'services/comeonAPI';
-import type { RootState } from './store';
+import type { IUser } from 'services/interfaces';
 
-type AuthState = {
-  player: User | null
-}
+type TToastState = { message: string | null }
+type TAuthState = { user: IUser | null }
 
-type CounterSliceState = { value: number };
-export const counterSlice = createSlice({
-  name: "counter",
-  initialState: { value: 0 } as CounterSliceState,
+export const toastSlice = createSlice({
+  name: 'toast',
+  initialState: { message: null } as TToastState,
   reducers: {
-    increment: state => {
-      state.value += 1;
-    },
-    decrement: state => {
-      state.value -= 1;
-    }
+    setToast: (state, { payload }) => {state.message = payload }
   }
-});
+})
 
 export const authSlice = createSlice({
   name: 'auth',
-  initialState: { player: null } as AuthState,
+  initialState: { user: null } as TAuthState,
   reducers: {
     setCredentials: ( state, { payload: { data }} ) => {
-      console.log({ data });
-      state.player = data.player
+      state.user = data.player
     },
   },
 })

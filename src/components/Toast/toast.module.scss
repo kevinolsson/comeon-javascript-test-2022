@@ -1,0 +1,19 @@
+.root {
+  display: block;
+  width: 100vw;
+  height: 52px;
+  text-align: center;
+
+  .success {
+    background-color: var(--color-success);
+  }
+  
+  .error {
+    background-color: var(--color-error)
+  }
+
+  .message {
+    color: var(--color-text-color)
+  }
+
+}

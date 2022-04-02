@@ -1,70 +1,41 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.scss";
-import { useAppDispatch } from "state/hooks";
-// import {
-//     useFetchGamesQuery as fetchGames,
-//     useLoginQuery,
-// } from "./services/comeonAPI";
-import {
-    Routes,
-    Route,
-    Link,
-    Outlet,
-    useParams,
-    RouteProps,
-    Navigate,
-    useLocation,
-} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { AppWrapper } from "components/AppWrapper/AppWrapper";
 import { Home } from "components/Home/Home";
 import { GameWrapper } from "components/GameWrapper/GameWrapper";
 import { GameLauncher } from "components/GameLauncher/GameLauncher";
 import { GameListing } from "components/GameListing/GameListing";
 import { PageNotFound } from "components/PageNotFound/PageNotFound";
-import { useAuth } from "hooks/useAuth";
+import { ProtectedComponent } from "components/ProtectedComponent/ProtectedComponent";
+import { ContextAwareToast as Toast } from "components/Toast/ContextAwareToast";
+import { paths } from "services/routes";
 
-const Protected = ({ children }: RouteProps): JSX.Element => {
-    const { user } = useAuth();
-    const location = useLocation();
-
-    console.log({ user });
-    if (!user) {
-        return <Navigate to="/" state={{ from: location }} replace />;
-    }
-
-    return <>{children}</>;
-};
-
-function App() {
-    const dispatch = useAppDispatch();
-
-    // const { data, error, isLoading } = fetchGames({});
-    // const authFail = useLoginQuery({ username: "hello", password: "world" });
-    // const authPass = useLoginQuery({ username: "eric", password: "dad" });
-
-    // console.log({ data, error, isLoading });
-    // console.log({ authFail, authPass });
-
+export const App = (): JSX.Element => {
     return (
-        <Routes>
-            <Route path="/" element={<AppWrapper />}>
-                <Route index element={<Home />} />
-                <Route
-                    path="games"
-                    element={
-                        <Protected>
-                            <GameWrapper />
-                        </Protected>
-                    }
-                >
-                    <Route path=":gameId" element={<GameLauncher />} />
-                    <Route index element={<GameListing />} />
+        <>
+            <Toast />
+            <Routes>
+                <Route path={paths.index.path} element={<AppWrapper />}>
+                    <Route index element={<Home />} />
+                    <Route
+                        path={paths.games.path}
+                        element={
+                            <ProtectedComponent>
+                                <GameWrapper />
+                            </ProtectedComponent>
+                        }
+                    >
+                        <Route
+                            path={paths.games.gameLauncher.path}
+                            element={<GameLauncher />}
+                        />
+                        <Route index element={<GameListing />} />
+                    </Route>
+                    <Route
+                        path={paths.pageNotFound.path}
+                        element={<PageNotFound />}
+                    />
                 </Route>
-                <Route path="*" element={<PageNotFound />} />
-            </Route>
-        </Routes>
+            </Routes>
+        </>
     );
-}
-
-export default App;
+};
