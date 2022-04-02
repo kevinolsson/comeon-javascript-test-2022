@@ -1,4 +1,10 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import type { User } from 'services/comeonAPI';
+import type { RootState } from './store';
+
+type AuthState = {
+  player: User | null
+}
 
 type CounterSliceState = { value: number };
 export const counterSlice = createSlice({
@@ -13,3 +19,14 @@ export const counterSlice = createSlice({
     }
   }
 });
+
+export const authSlice = createSlice({
+  name: 'auth',
+  initialState: { player: null } as AuthState,
+  reducers: {
+    setCredentials: ( state, { payload: { data }} ) => {
+      console.log({ data });
+      state.player = data.player
+    },
+  },
+})
