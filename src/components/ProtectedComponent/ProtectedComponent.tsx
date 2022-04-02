@@ -10,7 +10,12 @@ export const ProtectedComponent = ({ children }: RouteProps): JSX.Element => {
     const dispatch = useAppDispatch();
 
     if (!user) {
-        dispatch(setToast("Hello World"));
+        dispatch(
+            setToast({
+                message: "You need to be logged in to view that page!",
+                variant: "error",
+            })
+        );
         return (
             <Navigate
                 to={paths.index.path}

@@ -2,18 +2,18 @@
   display: block;
   width: 100vw;
   height: 52px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success {
+  background-color: var(--color-success);
+}
 
-  .success {
-    background-color: var(--color-success);
-  }
-  
-  .error {
-    background-color: var(--color-error)
-  }
+.error {
+  background-color: var(--color-error)
+}
 
-  .message {
-    color: var(--color-text-color)
-  }
-
+.message {
+  color: var(--color-text-color)
 }

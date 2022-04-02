@@ -4,7 +4,7 @@ import { setToast } from "state/actions";
 import { Toast } from "./Toast";
 
 export const ContextAwareToast = (): JSX.Element => {
-    const { message } = useAppSelector((state) => state.toast);
+    const { message, variant } = useAppSelector((state) => state.toast);
     const dispatch = useAppDispatch();
 
     React.useEffect(() => {
@@ -15,5 +15,7 @@ export const ContextAwareToast = (): JSX.Element => {
         }
     }, [message]);
 
-    return <div>{message && <Toast variant="error" message={message} />}</div>;
+    return (
+        <div>{message && <Toast variant={variant} message={message} />}</div>
+    );
 };

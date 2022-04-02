@@ -1,14 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { IUser } from 'services/interfaces';
+import { IUser } from 'services/interfaces';
+import { IToast } from 'components/Toast/toast.interface';
 
-type TToastState = { message: string | null }
+type TToastState = IToast
 type TAuthState = { user: IUser | null }
 
 export const toastSlice = createSlice({
   name: 'toast',
-  initialState: { message: null } as TToastState,
+  initialState: { message: '', variant: 'success' } as TToastState,
   reducers: {
-    setToast: (state, { payload }) => {state.message = payload }
+    setToast: (state, { payload }) => {
+      state.message = payload.message;
+      state.variant = payload.variant;
+    }
   }
 })
 
