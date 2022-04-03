@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .root {
-  --min-height: 50vh;
+  --min-height: 60vh;
 
   position: relative;
   box-sizing: border-box;
@@ -13,12 +13,30 @@
   @include medium {
     --min-height: 100vh;
   }
+
+  .loginWrapper {
+    margin-bottom: var(--margin);
+
+    @include medium {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: stretch;
+      align-content: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      transform: translateY(-24px);
+      
+    }
+  }
+  
+  .legalText {
+    position: relative;
+    @include medium {
+      position: absolute;
+      bottom: var(--padding);
+    }
+  } 
 }
 
-.legalText {
-  position: relative;
-  @include medium {
-    position: absolute;
-    bottom: var(--padding);
-  }
-}
+

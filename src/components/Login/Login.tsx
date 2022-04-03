@@ -1,11 +1,12 @@
 import React from "react";
 import { useAppDispatch } from "state/hooks";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "services/comeonAPI";
 import { ILoginRequest } from "services/interfaces";
 import { setCredentials } from "state/actions";
 import { useAuth } from "hooks/useAuth";
 import { Input } from "components/Input/Input";
+import { Button } from "components/Button/Button";
 import classes from "./login.module.scss";
 
 export const Login = (): JSX.Element => {
@@ -38,16 +39,27 @@ export const Login = (): JSX.Element => {
 
     return (
         <div className={classes.root}>
-            <h2>Välkommen</h2>
+            <h2>Välkommen!</h2>
             {user ? (
-                <div>
-                    <h2>You are already logged in!</h2>
-                    <Link to="/games">Go to games</Link>
+                <div
+                    className={[classes.message, classes.alreadyLoggedIn].join(
+                        " "
+                    )}
+                >
+                    <h3>Hi {user.name}! You are already logged in!</h3>
+                    <p>{user.event}</p>
+                    <Button size="small" color="white" to="/games">
+                        Go to games
+                    </Button>
                 </div>
             ) : (
                 <form onSubmit={handleSubmit}>
                     {error && (
-                        <div className={classes.errorMessage}>
+                        <div
+                            className={[classes.message, classes.error].join(
+                                " "
+                            )}
+                        >
                             You have entered an incorrect username or password.
                             Please try again!
                         </div>
@@ -72,13 +84,9 @@ export const Login = (): JSX.Element => {
                         formGroup="login"
                         value={formState.password}
                     />
-                    <div>
-                        {isLoading ? (
-                            <div>Loading...</div>
-                        ) : (
-                            <button onClick={handleSubmit}>Login</button>
-                        )}
-                    </div>
+                    <Button disabled={isLoading} onClick={handleSubmit}>
+                        {isLoading ? "Submitting..." : "Login"}
+                    </Button>
                 </form>
             )}
         </div>

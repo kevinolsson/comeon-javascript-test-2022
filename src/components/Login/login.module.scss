@@ -3,14 +3,27 @@
 .root {
   position: relative;
   display: block;
-  @include medium {
-    top: 25%;
-  }
 }
 
-.errorMessage {
-  background-color: var(--color-error);
+.message {
   border-radius: var(--border-radius);
   margin: var(--margin) 0;
   padding: var(--padding);
+}
+
+.error {
+  background-color: var(--color-error);
+
+}
+
+.alreadyLoggedIn {
+  background-color: var(--color-primary);
+  h3 {
+    margin-bottom: 0;
+  }
+  p {
+    margin: 0;
+    margin-bottom: var(--margin)
+  }
+  padding-bottom: 48px;
 }

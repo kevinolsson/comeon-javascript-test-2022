@@ -89,3 +89,7 @@
     box-shadow:inset 0px 0px 0px 1px var(--color-dark-highlight);
   }
 }
+
+.disabled {
+  opacity: 0.75;
+}

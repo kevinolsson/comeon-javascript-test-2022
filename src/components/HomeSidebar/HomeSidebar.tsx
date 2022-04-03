@@ -3,7 +3,9 @@ import { Login } from "components/Login/Login";
 
 export const HomeSidebar = (): JSX.Element => (
     <div className={classes.root}>
-        <Login />
+        <div className={classes.loginWrapper}>
+            <Login />
+        </div>
         <div className={classes.legalText}>
             <small>
                 Hos ComeOn! Sport &amp; Casino har du stora valmöjligheter. Vi

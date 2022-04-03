@@ -1,5 +1,5 @@
+import React from "react";
 import classes from "./input.module.scss";
-
 interface IInput {
     label: string;
     name: string;
