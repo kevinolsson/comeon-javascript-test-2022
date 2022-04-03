@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
+import classes from "./app-wrapper.module.scss";
+export interface IAppWrapper {
+    children?: JSX.Element;
+}
 
-export const AppWrapper = (): JSX.Element => (
-    <div style={{ padding: "24px", backgroundColor: "#333", height: "100vh" }}>
-        <h2 style={{ color: "#FFF" }}>AppWrapper</h2>
-        <div>
-            <Outlet />
-        </div>
+export const AppWrapper = ({ children }: IAppWrapper): JSX.Element => (
+    <div className={classes.root}>
+        <div>{children ? children : <Outlet />}</div>
     </div>
 );

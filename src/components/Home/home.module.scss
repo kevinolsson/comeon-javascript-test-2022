@@ -1,6 +1,16 @@
+@import '../../variables.scss';
+
 .root {
-  display: block;
-  padding: 24px;
-  margin: 24px;
-  background-color: #FFFFFF;
+  --grid-template-column: 1fr;
+
+  display: grid;
+  grid-template-columns: var(--grid-template-column);
+  @include medium {
+    --grid-template-column: 1fr 380px;
+  }
+  
+
+  @include large {
+    --grid-template-column: 1fr 480px;
+  }
 }

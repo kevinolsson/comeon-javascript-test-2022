@@ -1,0 +1,25 @@
+@import '../../variables.scss';
+
+.root {
+  --background-image: url('/background-image-mobile.jpg');
+  
+  background-color: var(--color-background-color);
+  background-position: center;
+  height: 100vh;
+  box-sizing: border-box;
+  color: var(--color-white);
+  background-size: cover;
+  background-image: var(--background-image);
+
+  @include medium {
+    --background-image: url('/background-image.jpg')
+  }
+
+ @include retina {
+    --background-image: url('/background-image-mobile@2x.jpg');
+    @include medium {
+      --background-image: url('/background-image@2x.jpg');
+    }
+  }
+
+}

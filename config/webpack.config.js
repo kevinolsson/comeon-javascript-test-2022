@@ -117,7 +117,7 @@ module.exports = function(webpackEnv) {
       },
       {
         loader: require.resolve("css-loader"),
-        options: cssOptions
+        options: {...cssOptions, url: false},
       },
       {
         // Options for PostCSS as we reference these options twice
@@ -474,7 +474,7 @@ module.exports = function(webpackEnv) {
                   ? shouldUseSourceMap
                   : isEnvDevelopment,
                 modules: {
-                  mode: "icss"
+                  mode: "local"
                 }
               }),
               // Don't consider CSS imports dead code even if the
@@ -511,7 +511,7 @@ module.exports = function(webpackEnv) {
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
                   modules: {
-                    mode: "icss"
+                    mode: "local"
                   }
                 },
                 "sass-loader"

@@ -1,0 +1,23 @@
+@mixin medium {
+  @media (min-width: 923px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: 1441px) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media 
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}

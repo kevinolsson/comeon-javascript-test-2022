@@ -1,0 +1,16 @@
+@import "variables.scss";
+
+.root {
+  position: relative;
+  display: block;
+  @include medium {
+    top: 25%;
+  }
+}
+
+.errorMessage {
+  background-color: var(--color-error);
+  border-radius: var(--border-radius);
+  margin: var(--margin) 0;
+  padding: var(--padding);
+}

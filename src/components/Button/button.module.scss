@@ -1,0 +1,91 @@
+.root {
+  display: inline-block;
+  white-space: nowrap;
+  border-radius: 100px;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-bold);
+  border: none;
+  transition: all ease-out 0.1s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.regular {
+  line-height: 51px;
+  width: 100%;
+  
+}
+.small {
+  width: auto;
+  line-height: 31px;
+  padding: 0 var(--padding);
+}
+
+.filled.primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  &:hover {
+    background-color: var(--color-primary-highlight);
+  }
+} 
+
+.filled.white {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  &:hover {
+    background-color: var(--color-white-highlight);
+  }
+}
+  
+.filled.dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  &:hover {
+    background-color: var(--color-dark-highlight);
+  }
+}
+
+.outlined {
+  background-color: transparent;
+}
+
+.outlined.primary {
+  -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-primary);
+  -moz-box-shadow:inset 0px 0px 0px 1px var(--color-primary);
+  box-shadow:inset 0px 0px 0px 1px var(--color-primary);
+  color: var(--color-primary);
+  &:hover {
+    color: var(--color-primary-highlight);
+    -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-primary-highlight);
+    -moz-box-shadow:inset 0px 0px 0px 1px var(--color-primary-highlight);
+    box-shadow:inset 0px 0px 0px 1px var(--color-primary-highlight);
+  }
+}
+
+.outlined.white {
+  -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-white);
+  -moz-box-shadow:inset 0px 0px 0px 1px var(--color-white);
+  box-shadow:inset 0px 0px 0px 1px var(--color-white);
+  color: var(--color-white);
+  &:hover {
+    color: var(--color-white-highlight);
+    -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-white-highlight);
+    -moz-box-shadow:inset 0px 0px 0px 1px var(--color-white-highlight);
+    box-shadow:inset 0px 0px 0px 1px var(--color-white-highlight);
+  }
+}
+
+.outlined.dark {
+  -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-dark);
+  -moz-box-shadow:inset 0px 0px 0px 1px var(--color-dark);
+  box-shadow:inset 0px 0px 0px 1px var(--color-dark);
+  color: var(--color-dark);
+  &:hover {
+    color: var(--color-dark-highlight);
+    -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-dark-highlight);
+    -moz-box-shadow:inset 0px 0px 0px 1px var(--color-dark-highlight);
+    box-shadow:inset 0px 0px 0px 1px var(--color-dark-highlight);
+  }
+}
