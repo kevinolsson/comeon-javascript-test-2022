@@ -45,7 +45,6 @@ export const filterSlice = createSlice({
       state.search = payload
     },
     setFilterCategory: (state, { payload }) => {
-      console.log({ payload });
       state.category = payload
     }
   }

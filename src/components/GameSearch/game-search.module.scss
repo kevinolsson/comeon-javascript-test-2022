@@ -1,0 +1,25 @@
+.root {
+  position: relative;
+
+  input {
+    font-size: var(--font-size-heading-small);
+    padding: 16px 0px 16px 64px;
+    transform: translate(-24px, -24px);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    border: 0;
+    width: calc(100% - 16px);
+    background-color: var(--color-dark-background-color);
+    color: var(--color-text);
+    &::placeholder {
+      color: var(--color-grey-300);
+    }
+  }
+
+
+
+  svg {
+    position: absolute;
+    z-index: 1;
+    transform: translateY(-6px);
+  }
+}

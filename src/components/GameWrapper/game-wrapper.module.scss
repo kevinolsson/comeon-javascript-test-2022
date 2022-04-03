@@ -8,3 +8,13 @@
   max-width: 1024px;
   margin: 0 auto;
 }
+
+.container {
+  background: var(--color-grey-500);
+  background: linear-gradient(142deg, var(--color-grey-500) 0%, var(--color-grey-800) 100%);
+  width: 100%;
+  min-height: 300px;
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  box-sizing: border-box;
+}

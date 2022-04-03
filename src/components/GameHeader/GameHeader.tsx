@@ -1,4 +1,4 @@
-import { useAppSelector, useAppDispatch } from 'state/hooks'
+import { useAppSelector, useAppDispatch } from "state/hooks"
 import { setFilterCategory } from "state/actions";
 import { Button, IButton } from "components/Button/Button";
 import { fetchCategories } from "services/comeonAPI";
@@ -21,13 +21,10 @@ export const GameHeader = (): JSX.Element => {
         dispatch(setFilterCategory(id));
       }
     }
-
-
-
     
     return (
         <div className={classes.root}>
-            <h1>{activeGame || activeSearch || 'Games'}</h1>
+            <h1>{activeGame || activeSearch && `Search: ${activeSearch}` || "Games"}</h1>
             {categories?.length && (
                 <div className={classes.categoryFilterRow}>
                     {categories.map((cat) => {
