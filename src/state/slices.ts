@@ -6,8 +6,9 @@ type TToastState = IToast
 type TAuthState = { user: IUser | null }
 type TFilterState = {
   search: string | null;
-  category: number | null;
+  category: number;
 }
+type TGameState = string | null;
 
 export const toastSlice = createSlice({
   name: 'toast',
@@ -37,14 +38,25 @@ export const filterSlice = createSlice({
   name: "filter",
   initialState: {
     search: '',
-    category: null
+    category: 0
   } as TFilterState,
   reducers: {
     setFilterSearch: (state, { payload }) => {
       state.search = payload
     },
     setFilterCategory: (state, { payload }) => {
+      console.log({ payload });
       state.category = payload
+    }
+  }
+})
+
+export const gameSlice = createSlice({
+  name: "game",
+  initialState: null,
+  reducers: {
+    setActiveGame: (state, { payload }) => {
+      state = payload
     }
   }
 })

@@ -6,7 +6,7 @@ import classes from "./game-wrapper.module.scss";
 
 export const GameWrapper = (): JSX.Element => {
     const { data: games, error, isLoading } = fetchGames({});
-
+    console.log({ games });
     return (
         <div className={classes.root}>
             <Topbar />
