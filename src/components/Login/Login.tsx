@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppDispatch } from "state/hooks";
 import { useNavigate } from "react-router-dom";
-import { useLoginMutation } from "services/comeonAPI";
+import { useLogin } from "services/comeonAPI";
 import { ILoginRequest } from "services/interfaces";
 import { setCredentials, clearCredentials, setToast } from "state/actions";
 import { useAuth } from "hooks/useAuth";
@@ -20,7 +20,7 @@ export const Login = (): JSX.Element => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const [login, { isLoading }] = useLoginMutation();
+    const [login, { isLoading }] = useLogin();
 
     const handleChange = ({
         target: { name, value },

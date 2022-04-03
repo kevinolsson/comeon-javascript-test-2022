@@ -1,0 +1,10 @@
+.root {
+  display: block;
+  padding: var(--padding);
+  padding-top: 64px;
+}
+
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+}

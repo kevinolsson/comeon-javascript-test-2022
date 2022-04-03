@@ -4,6 +4,10 @@ import { IToast } from 'components/Toast/Toast';
 
 type TToastState = IToast
 type TAuthState = { user: IUser | null }
+type TFilterState = {
+  search: string | null;
+  category: number | null;
+}
 
 export const toastSlice = createSlice({
   name: 'toast',
@@ -27,4 +31,20 @@ export const authSlice = createSlice({
       state.user = null
     }
   },
+})
+
+export const filterSlice = createSlice({
+  name: "filter",
+  initialState: {
+    search: '',
+    category: null
+  } as TFilterState,
+  reducers: {
+    setFilterSearch: (state, { payload }) => {
+      state.search = payload
+    },
+    setFilterCategory: (state, { payload }) => {
+      state.category = payload
+    }
+  }
 })

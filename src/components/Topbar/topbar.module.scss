@@ -1,0 +1,16 @@
+.root {
+  height: 64px;
+  width: 100vw;
+  background-color: var(--color-dark-background-color);  
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: var(--padding);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  svg {
+    width: 156px;
+  }
+}

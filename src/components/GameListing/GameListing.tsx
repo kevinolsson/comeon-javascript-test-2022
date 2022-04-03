@@ -1,5 +1,5 @@
 export const GameListing = () => (
     <div>
-        <h2>List of games!</h2>
+        <h2>{`<GameListing />`}</h2>
     </div>
 );

@@ -1,21 +1,21 @@
-import { Outlet, Link } from "react-router-dom";
+import { fetchGames } from "services/comeonAPI";
+import { Outlet } from "react-router-dom";
+import { Topbar } from "components/Topbar/Topbar";
+import { GameHeader } from "components/GameHeader/GameHeader";
+import classes from "./game-wrapper.module.scss";
 
-export const GameWrapper = (): JSX.Element => (
-    <div>
-        <div
-            style={{
-                backgroundColor: "#FFF",
-                width: "100%",
-                height: "100px",
-            }}
-        >
-            <Link to="/">Home</Link>
+export const GameWrapper = (): JSX.Element => {
+    const { data: games, error, isLoading } = fetchGames({});
+
+    return (
+        <div className={classes.root}>
+            <Topbar />
+            <div className={classes.wrapper}>
+                <GameHeader />
+                <div className={classes.container}>
+                    <Outlet />
+                </div>
+            </div>
         </div>
-        <h1 style={{ color: "white" }}>Games Wrapper</h1>
-        <div
-            style={{ margin: "24px", padding: "24px", backgroundColor: "#FFF" }}
-        >
-            <Outlet />
-        </div>
-    </div>
-);
+    );
+};

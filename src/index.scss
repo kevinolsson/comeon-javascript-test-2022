@@ -19,6 +19,7 @@
   --color-error: #D45252;
   --color-success: #3FC685;
   --color-background-color: #373942;
+  --color-dark-background-color: #282B34;
   --color-text-color: #ffffff; 
   --color-grey-300: #8F8F8F;
   --color-grey-500: #373942;
@@ -31,6 +32,7 @@
   --font-size: 16px;
   --font-size-small: 14px;
   --font-weight-bold: 500;
+  --font-weight-button: bold;
   --font-weight-regular: 400;
   --font-line-height-heading: 1.2;
   --font-line-height-text: 1.5;
@@ -57,6 +59,8 @@ a {
 h1, h2, h3 {
   line-height: var(--font-line-height-heading);
   font-weight: var(--font-weight-bold);
+  margin: 0;
+  margin-bottom: var(--padding);
 }
 
 h1 {

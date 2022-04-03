@@ -8,8 +8,11 @@ export const comeonAPI = createApi({
     baseUrl: 'http://localhost:3001/',
   }),
   endpoints: (builder) => ({
-    fetchGames: builder.query<unknown, TGameCollection>({ 
+    fetchGames: builder.query({ 
       query: () => 'games'
+    }),
+    fetchCategories: builder.query({ 
+      query: () => 'categories'
     }),
     login: builder.mutation<IUserResponse, ILoginRequest>({
       query: (credentials) => ({
@@ -21,4 +24,7 @@ export const comeonAPI = createApi({
   }),
 })
 
-export const { useFetchGamesQuery, useLoginMutation } = comeonAPI
+export const { 
+  useFetchGamesQuery: fetchGames,
+  useFetchCategoriesQuery: fetchCategories,
+  useLoginMutation: useLogin } = comeonAPI

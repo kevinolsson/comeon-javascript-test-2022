@@ -1,0 +1,13 @@
+.root {
+  margin: 64px 0 48px;
+
+  h1 {
+    margin-bottom: var(--margin-small);
+  }
+}
+
+.categoryFilterRow {
+  button {
+    text-transform: capitalize;
+  }
+}

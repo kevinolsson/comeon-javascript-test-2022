@@ -1,6 +1,6 @@
 import classes from "./button.module.scss";
 import { Link } from "react-router-dom";
-interface IButton {
+export interface IButton {
     label?: JSX.Element | string;
     onClick?: () => void;
     size?: "regular" | "small";
