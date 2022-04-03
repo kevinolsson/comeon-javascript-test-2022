@@ -11,11 +11,9 @@ export const ContextAwareToast = (): JSX.Element => {
         if (message) {
             setTimeout(() => {
                 dispatch(setToast(""));
-            }, 1000);
+            }, 1500);
         }
     }, [message]);
 
-    return (
-        <div>{message && <Toast variant={variant} message={message} />}</div>
-    );
+    return <>{message && <Toast variant={variant} message={message} />}</>;
 };

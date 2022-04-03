@@ -3,11 +3,12 @@ import { useAppDispatch } from "state/hooks";
 import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "services/comeonAPI";
 import { ILoginRequest } from "services/interfaces";
-import { setCredentials } from "state/actions";
+import { setCredentials, clearCredentials, setToast } from "state/actions";
 import { useAuth } from "hooks/useAuth";
 import { Input } from "components/Input/Input";
 import { Button } from "components/Button/Button";
 import classes from "./login.module.scss";
+import { paths } from "services/routes";
 
 export const Login = (): JSX.Element => {
     const [formState, setFormState] = React.useState<ILoginRequest>({
@@ -30,11 +31,27 @@ export const Login = (): JSX.Element => {
         try {
             await login(formState).then((response) => {
                 dispatch(setCredentials(response));
-                navigate("/games");
+                navigate(paths.games.path);
+                dispatch(
+                    setToast({
+                        variant: "success",
+                        message: `You have succesfully logged in! Welcome!`,
+                    })
+                );
             });
         } catch (error) {
             setError(error);
         }
+    };
+
+    const handleLogout = () => {
+        dispatch(clearCredentials());
+        dispatch(
+            setToast({
+                variant: "success",
+                message: "Logged out! Thank you for visiting!",
+            })
+        );
     };
 
     return (
@@ -48,8 +65,11 @@ export const Login = (): JSX.Element => {
                 >
                     <h3>Hi {user.name}! You are already logged in!</h3>
                     <p>{user.event}</p>
-                    <Button size="small" color="white" to="/games">
+                    <Button size="small" color="white" to={paths.games.path}>
                         Go to games
+                    </Button>
+                    <Button size="small" color="dark" onClick={handleLogout}>
+                        Logout
                     </Button>
                 </div>
             ) : (
@@ -84,7 +104,11 @@ export const Login = (): JSX.Element => {
                         formGroup="login"
                         value={formState.password}
                     />
-                    <Button disabled={isLoading} onClick={handleSubmit}>
+                    <Button
+                        type={"submit"}
+                        disabled={isLoading}
+                        onClick={handleSubmit}
+                    >
                         {isLoading ? "Submitting..." : "Login"}
                     </Button>
                 </form>

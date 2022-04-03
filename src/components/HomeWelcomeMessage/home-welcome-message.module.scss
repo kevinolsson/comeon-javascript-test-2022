@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: center;
   min-height: 40vh;
+  padding: var(--padding);
+  box-sizing: border-box;
 
   .wrapper {
     max-width: 520px;

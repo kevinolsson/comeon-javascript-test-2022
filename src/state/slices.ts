@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IUser } from 'services/interfaces';
-import { IToast } from 'components/Toast/toast.interface';
+import { IToast } from 'components/Toast/Toast';
 
 type TToastState = IToast
 type TAuthState = { user: IUser | null }
@@ -23,5 +23,8 @@ export const authSlice = createSlice({
     setCredentials: ( state, { payload: { data }} ) => {
       state.user = data.player
     },
+    clearCredentials: (state) => {
+      state.user = null
+    }
   },
 })

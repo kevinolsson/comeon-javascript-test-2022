@@ -8,7 +8,7 @@ interface IButton {
     color?: "primary" | "white" | "dark";
     children?: JSX.Element | string;
     disabled?: boolean;
-    element?: "button" | typeof Link;
+    type?: "button" | "submit";
     to?: string;
 }
 
@@ -17,20 +17,20 @@ interface IButton {
  */
 export const Button = ({
     label,
+    type = "button",
     children,
     size = "regular",
     variant = "filled",
     color = "primary",
     disabled,
-    element = "button",
     to,
     ...props
 }: IButton) => {
-    const Component = element;
+    const Component = to ? Link : "button";
     return (
         <Component
             to={to || ""}
-            type="button"
+            type={type}
             className={[
                 classes.root,
                 classes[size],
