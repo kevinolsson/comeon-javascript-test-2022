@@ -40,7 +40,7 @@ export const Button = ({
             ]
                 .filter(Boolean)
                 .join(" ")}
-            disabled
+            disabled={disabled}
             {...props}
         >
             {children || label}

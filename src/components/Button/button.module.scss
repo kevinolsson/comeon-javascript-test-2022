@@ -10,6 +10,10 @@
   &:hover {
     cursor: pointer;
   }
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 .regular {
@@ -26,7 +30,7 @@
 .filled.primary {
   background-color: var(--color-primary);
   color: var(--color-white);
-  &:hover {
+  &:hover:enabled {
     background-color: var(--color-primary-highlight);
   }
 } 
@@ -34,7 +38,7 @@
 .filled.white {
   background-color: var(--color-white);
   color: var(--color-dark);
-  &:hover {
+  &:hover:enabled {
     background-color: var(--color-white-highlight);
   }
 }
@@ -42,7 +46,7 @@
 .filled.dark {
   background-color: var(--color-dark);
   color: var(--color-white);
-  &:hover {
+  &:hover:enabled {
     background-color: var(--color-dark-highlight);
   }
 }
@@ -56,7 +60,7 @@
   -moz-box-shadow:inset 0px 0px 0px 1px var(--color-primary);
   box-shadow:inset 0px 0px 0px 1px var(--color-primary);
   color: var(--color-primary);
-  &:hover {
+  &:hover:enabled {
     color: var(--color-primary-highlight);
     -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-primary-highlight);
     -moz-box-shadow:inset 0px 0px 0px 1px var(--color-primary-highlight);
@@ -69,7 +73,7 @@
   -moz-box-shadow:inset 0px 0px 0px 1px var(--color-white);
   box-shadow:inset 0px 0px 0px 1px var(--color-white);
   color: var(--color-white);
-  &:hover {
+  &:hover:enabled {
     color: var(--color-white-highlight);
     -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-white-highlight);
     -moz-box-shadow:inset 0px 0px 0px 1px var(--color-white-highlight);
@@ -82,7 +86,7 @@
   -moz-box-shadow:inset 0px 0px 0px 1px var(--color-dark);
   box-shadow:inset 0px 0px 0px 1px var(--color-dark);
   color: var(--color-dark);
-  &:hover {
+  &:hover:enabled {
     color: var(--color-dark-highlight);
     -webkit-box-shadow:inset 0px 0px 0px 1px var(--color-dark-highlight);
     -moz-box-shadow:inset 0px 0px 0px 1px var(--color-dark-highlight);
