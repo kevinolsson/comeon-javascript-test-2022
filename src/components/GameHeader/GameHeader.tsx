@@ -22,6 +22,9 @@ export const GameHeader = (): JSX.Element => {
       }
     }
 
+
+
+    
     return (
         <div className={classes.root}>
             <h1>{activeGame || activeSearch || 'Games'}</h1>
