@@ -1,6 +1,6 @@
 import React from "react";
 import { fetchGames } from "services/comeonAPI";
-import { useAppSelector, useAppDispatch } from "state/hooks"
+import { useAppSelector } from "state/hooks"
 import { TGameCollection  } from "services/interfaces";
 import { GameSearch } from "components/GameSearch/GameSearch";
 import { GameThumbnail } from "components/GameThumbnail/GameThumbnail";
@@ -35,8 +35,6 @@ export const GameListing = () => {
 
         setFilteredList(newFilteredList);
     }, [activeCategory, activeSearch, games])
-    
-    console.log({ games });
 
     return (
         <>

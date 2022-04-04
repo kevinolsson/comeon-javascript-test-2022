@@ -6,7 +6,7 @@ export interface IButton {
     size?: "regular" | "small";
     variant?: "filled" | "outlined";
     color?: "primary" | "white" | "dark";
-    children?: JSX.Element | string;
+    children?: any;
     disabled?: boolean;
     type?: "button" | "submit";
     to?: string;

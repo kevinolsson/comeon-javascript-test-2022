@@ -1,0 +1,9 @@
+.root {
+  iframe {
+    width: calc(100% + 48px);
+    transform: translate(-24px, -24px);
+    margin-bottom: -64px;
+    border-radius: var(--border-radius);
+    
+  }
+}

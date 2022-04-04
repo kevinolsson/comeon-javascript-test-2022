@@ -1,7 +1,6 @@
 import classes from "./game-thumbnail.module.scss";
 import { IGame } from "services/interfaces";
 import { Button } from "components/Button/Button";
-import { paths, buildPath } from "services/routes";
 
 export const GameThumbnail = ({
     name,
@@ -14,7 +13,7 @@ export const GameThumbnail = ({
         <div>
             <div className={classes.title}>
                 <h3>{name}</h3>
-                <Button to={buildPath(paths.games.path, code)} size="small">
+                <Button to={code} size="small">
                     Launch
                 </Button>
             </div>

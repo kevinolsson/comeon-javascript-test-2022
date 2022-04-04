@@ -49,13 +49,3 @@ export const filterSlice = createSlice({
     }
   }
 })
-
-export const gameSlice = createSlice({
-  name: "game",
-  initialState: null,
-  reducers: {
-    setActiveGame: (state, { payload }) => {
-      state = payload
-    }
-  }
-})
