@@ -1,11 +1,20 @@
 @import '../../variables.scss';
 
-.root {
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.background {
   --background-image: url('/background-image-mobile.jpg');
-  
   background-color: var(--color-background-color);
   background-position: center;
+  position: fixed;
+  z-index: 0;
+  top: 0px;
+  left: 0px;
   height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
   color: var(--color-white);
   background-size: cover;

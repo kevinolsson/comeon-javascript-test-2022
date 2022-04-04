@@ -6,6 +6,9 @@ export interface IAppWrapper {
 
 export const AppWrapper = ({ children }: IAppWrapper): JSX.Element => (
     <div className={classes.root}>
-        <div>{children ? children : <Outlet />}</div>
+        <div className={classes.background} />
+        <div className={classes.content}>
+            {children ? children : <Outlet />}
+        </div>
     </div>
 );

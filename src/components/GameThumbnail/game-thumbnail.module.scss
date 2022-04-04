@@ -5,6 +5,10 @@
   grid-template-columns: auto 1fr;
   grid-gap: var(--margin);
 
+  &:hover {
+    cursor: pointer;
+  }
+
   h3 {
     margin-bottom: var(--margin-small);
     max-width: 18ch;
