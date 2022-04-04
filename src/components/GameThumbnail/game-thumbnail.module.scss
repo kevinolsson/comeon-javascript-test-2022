@@ -14,9 +14,13 @@
     max-width: 18ch;
   } 
 
-  p {
+  small {
     margin: 0;
     margin-bottom: var(--margin);
+    display: none;
+    @include small {
+      display: block;
+    }
   }
 
   img {
@@ -26,12 +30,16 @@
   }
 
   .title {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
+    @include small {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: nowrap;
+    }
   }
+
+
 
   @include medium {
     display: block;

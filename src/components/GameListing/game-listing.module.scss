@@ -19,7 +19,7 @@
   grid-template-columns: 1fr;
   grid-gap: var(--padding);
   margin-bottom: 64px;
-
+  
   @include medium {
     grid-template-columns:  repeat(3, 1fr);
   }

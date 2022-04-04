@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 .root {
   display: block;
   padding: var(--padding);
@@ -13,9 +15,15 @@
 .container {
   background: var(--color-grey-500);
   background: linear-gradient(142deg, var(--color-grey-500) 0%, var(--color-grey-800) 100%);
-  width: 100%;
   min-height: 300px;
   border-radius: var(--border-radius);
   padding: var(--padding);
   box-sizing: border-box;
+  width: 100vw;
+  transform: translateX(-24px);
+
+  @include medium {
+    width: 100%;
+    transform: unset;
+  }
 }
