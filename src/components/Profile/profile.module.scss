@@ -1,0 +1,55 @@
+.root {
+  position: relative;
+}
+
+.touchOverlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.pill {
+  background-color: var(--color-background-color);
+  display: flex;
+  align-items: center;
+  padding: var(--padding-small) var(--padding);
+  padding-left: 10px; // one time optical adjustment
+  border-radius: 100px;
+  transition: 0.1s all ease-out;
+  position: relative;
+  z-index: 2;
+
+  span {
+    margin-left: var(--margin-small)
+  }
+}
+
+.pill:hover, .expanded {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  cursor: pointer
+}
+
+.profile {
+  position: absolute;
+  z-index: 2;
+  top: 60px;
+  width: 240px;
+  right: 0px;
+  padding: var(--padding);
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  background-color: var(--color-background-color);
+
+  h2 {
+    margin: 0;
+  }
+
+  button {
+    display: block;
+    margin-top: var(--margin)
+  }
+}

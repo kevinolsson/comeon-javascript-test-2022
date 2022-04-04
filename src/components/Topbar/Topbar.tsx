@@ -1,6 +1,7 @@
 import classes from "./topbar.module.scss";
 import { Logo } from "components/Logo/Logo";
 import { Link } from "react-router-dom";
+import { Profile } from "components/Profile/Profile";
 import { paths } from "services/routes";
 
 export const Topbar = (): JSX.Element => {
@@ -9,7 +10,7 @@ export const Topbar = (): JSX.Element => {
             <Link to={paths.index.path}>
                 <Logo />
             </Link>
-            <div>Profile</div>
+            <Profile />
         </div>
     );
 };
