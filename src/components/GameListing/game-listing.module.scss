@@ -1,0 +1,27 @@
+@import "variables.scss";
+
+.empty {
+  text-align: center;
+  margin: var(--margin);
+
+  h2, p {
+    opacity: 0.5;
+    font-weight: lighter;
+    margin: 0;
+  }
+
+  strong {
+    color: var(--color-primary);
+  }
+}
+
+.listing {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: var(--padding);
+  margin-bottom: 64px;
+
+  @include medium {
+    grid-template-columns:  repeat(3, 1fr);
+  }
+}

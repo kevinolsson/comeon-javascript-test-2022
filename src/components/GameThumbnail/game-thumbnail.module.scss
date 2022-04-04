@@ -1,0 +1,36 @@
+@import "variables.scss";
+
+.root {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: var(--margin);
+
+  h3 {
+    margin-bottom: var(--margin-small);
+    max-width: 18ch;
+  } 
+
+  p {
+    margin: 0;
+    margin-bottom: var(--margin);
+  }
+
+  img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--margin-small);
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  @include medium {
+    display: block;
+  }
+
+}

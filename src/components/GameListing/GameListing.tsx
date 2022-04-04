@@ -3,6 +3,8 @@ import { fetchGames } from "services/comeonAPI";
 import { useAppSelector, useAppDispatch } from "state/hooks"
 import { TGameCollection  } from "services/interfaces";
 import { GameSearch } from "components/GameSearch/GameSearch";
+import { GameThumbnail } from "components/GameThumbnail/GameThumbnail";
+import classes from './game-listing.module.scss';
 
 const isPatternValid = (pattern: string): boolean => {
     try {
@@ -34,17 +36,26 @@ export const GameListing = () => {
         setFilteredList(newFilteredList);
     }, [activeCategory, activeSearch, games])
     
+    console.log({ games });
 
     return (
         <>
             <GameSearch />
             { games ? (
-                <div>
-                    {filteredList?.map(g => (
-                        <div key={g.name}><h3>{g.name}</h3></div>
-                    ))}
+                <div className={[filteredList?.length && classes.listing].filter(Boolean).join(' ')}>
+                    { filteredList?.length ? filteredList?.map(game => (
+                        <div key={game.name}>
+                            <GameThumbnail {...game} />
+                        </div>
+                    )) : (
+                        <div className={classes.empty}>
+                            <h2>Oops!</h2>
+                            <p>It looks like we dont have <strong>{activeSearch}</strong> in our list of games yet!</p>
+                        </div>
+                        ) }
+
                 </div>
-            ) : <div />}
+            ) : <div/>}
         </>
     )
 };

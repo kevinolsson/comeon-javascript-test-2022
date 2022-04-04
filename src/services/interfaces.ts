@@ -10,6 +10,7 @@ export interface IGame {
   description: string
   icon: string
   categoryIds: [number]
+  code: string
 }
 export type TGameCollection = IGame[];
 
