@@ -31,8 +31,10 @@
   }
   
   .legalText {
+    max-width: 100%;
     position: relative;
     @include medium {
+      max-width: 420px;
       position: absolute;
       bottom: var(--padding);
     }
